@@ -1,0 +1,56 @@
+{
+  "name": "form-validation-problem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoe-joblin/form-validation-problem.git"
+  },
+  "scripts": {
+    "start": "node server",
+    "build": "webpack",
+    "dev": "run-p client server",
+    "client": "webpack --config ./client/webpack.config.js --watch",
+    "server": "nodemon server --watch",
+    "lint": "eslint --ext .js,.jsx ."
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "eda",
+    "ignorePatterns": [
+      "bundle.js"
+    ]
+  },
+  "keywords": [],
+  "author": "EDA",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "eslint": "^7.32.0",
+    "eslint-config-eda": "^0.1.4"
+  }
+}
