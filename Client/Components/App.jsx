@@ -4,7 +4,10 @@ import Form from './Form'
 function App () {
 
   return (
+    <>
+    {/* <h1> Kia ora </h1> */}
     < Form />
+    </>
   )
 }
 
