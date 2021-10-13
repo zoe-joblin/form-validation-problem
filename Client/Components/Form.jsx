@@ -59,7 +59,7 @@ return (
         </div>
         <div>
           <label htmlFor='password' >Password:</label>
-          <input name='password' value={newPassword} type='text' onChange={handlePasswordChange} />
+          <input name='password' value={newPassword} type='text' minLength="8" onChange={handlePasswordChange} />
         </div>
         <div>
         <label htmlFor='colour'>Colour: </label>

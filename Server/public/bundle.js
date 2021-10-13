@@ -146,6 +146,7 @@ function Form() {
     name: "password",
     value: newPassword,
     type: "text",
+    minLength: "8",
     onChange: handlePasswordChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "colour"
