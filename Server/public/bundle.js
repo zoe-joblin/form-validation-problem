@@ -76,7 +76,17 @@ function Form() {
       newAnimal = _useState10[0],
       setNewAnimal = _useState10[1];
 
-  var colours = ['Blue', 'Green', 'Red', 'Black', 'Brown'];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      ifTiger = _useState12[0],
+      setIfTiger = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState14 = _slicedToArray(_useState13, 2),
+      tigerType = _useState14[0],
+      setTigerType = _useState14[1];
+
+  var colours = ['Blue', 'Green', 'Red', 'Black', 'Brown']; // const animals = ['Bear', 'Tiger', 'Snake', 'Donkey']
 
   var handleSubmit = function handleSubmit(evt) {
     evt.preventDefault();
@@ -84,7 +94,8 @@ function Form() {
       email: newEmail,
       password: newPassword,
       colour: newColour,
-      animal: newAnimal
+      animal: newAnimal,
+      tigerType: tigerType
     });
   };
 
@@ -101,8 +112,22 @@ function Form() {
   var handleColourChange = function handleColourChange(evt) {
     console.log(evt.target.value);
     setNewColour(evt.target.value);
-  }; // const { email, password, colour, animal } = formData
+  };
 
+  var handleAnimalChange = function handleAnimalChange(evt) {
+    if (evt.target.value == "Tiger") {
+      setIfTiger(true);
+    }
+
+    setNewAnimal({
+      selectedOption: evt.target.value
+    });
+  };
+
+  var handleTigerType = function handleTigerType(evt) {
+    console.log(evt.target.value);
+    setTigerType(evt.target.value);
+  };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "base add-contact add"
@@ -124,23 +149,71 @@ function Form() {
     onChange: handlePasswordChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "colour"
-  }, "Colour "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+  }, "Colour: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     onChange: handleColourChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
     value: "",
     selected: true,
     disabled: true,
     hidden: true
-  }, "Click here!"), colours.map(function (colour) {
+  }, "select a colour"), colours.map(function (colour) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
       key: colour
     }, colour);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    OnClick: console.log(formData)
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "animal"
+  }, "Animal: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "radio"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "radio",
+    value: "Bear",
+    checked: newAnimal.selectedOption === "Bear",
+    onChange: handleAnimalChange
+  }), "Bear")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "radio"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "radio",
+    value: "Tiger",
+    checked: newAnimal.selectedOption === "Tiger",
+    onChange: handleAnimalChange
+  }), "Tiger")), ifTiger ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "tigerType"
+  }, "Type of Tiger:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    name: "tigerType",
+    value: tigerType,
+    type: "text",
+    onChange: handleTigerType,
+    required: true
+  })) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "radio"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "radio",
+    value: "Snake",
+    checked: newAnimal.selectedOption === "Snake",
+    onChange: handleAnimalChange
+  }), "Snake")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "radio"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "radio",
+    value: "Donkey",
+    checked: newAnimal.selectedOption === "Donkey",
+    onChange: handleAnimalChange
+  }), "Donkey"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: console.log(formData)
   }, "Submit!")));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);
+{
+  /* <select onChange={handleAnimalChange}>
+  <option value="" selected disabled hidden >select an animal</option>
+   {
+  animals.map((animal) => {
+   return <option key={animal}>{animal}</option>
+   })
+  }
+  </select> */
+}
 
 /***/ }),
 
