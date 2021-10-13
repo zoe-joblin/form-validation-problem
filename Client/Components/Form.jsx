@@ -55,7 +55,7 @@ return (
   <form onSubmit={handleSubmit} >
         <div>
           <label htmlFor='email' >Email:</label>
-          <input name='email'  value={newEmail} type='text' onChange={handleEmailChange} />
+          <input name='email'  value={newEmail} type='text'  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleEmailChange} />
         </div>
         <div>
           <label htmlFor='password' >Password:</label>
