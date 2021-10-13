@@ -36,6 +36,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -71,10 +79,10 @@ function Form() {
       newColour = _useState8[0],
       setNewColour = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState10 = _slicedToArray(_useState9, 2),
-      newAnimal = _useState10[0],
-      setNewAnimal = _useState10[1];
+      newAnimals = _useState10[0],
+      setNewAnimals = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState12 = _slicedToArray(_useState11, 2),
@@ -94,7 +102,7 @@ function Form() {
       email: newEmail,
       password: newPassword,
       colour: newColour,
-      animal: newAnimal,
+      animal: newAnimals,
       tigerType: tigerType
     });
   };
@@ -117,11 +125,11 @@ function Form() {
   var handleAnimalChange = function handleAnimalChange(evt) {
     if (evt.target.value == "Tiger") {
       setIfTiger(true);
+      setNewAnimals([].concat(_toConsumableArray(newAnimals), [evt.target.value]));
     }
 
-    setNewAnimal({
-      selectedOption: evt.target.value
-    });
+    setNewAnimals([].concat(_toConsumableArray(newAnimals), [evt.target.value]));
+    console.log(evt.target.value);
   };
 
   var handleTigerType = function handleTigerType(evt) {
@@ -167,16 +175,18 @@ function Form() {
   }, "Animal: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "radio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "radio",
+    type: "checkbox",
     value: "Bear",
-    checked: newAnimal.selectedOption === "Bear",
+    name: "Bear" // checked={newAnimal.selectedOption === "Bear"}
+    ,
     onChange: handleAnimalChange
   }), "Bear")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "radio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "radio",
+    type: "checkbox",
     value: "Tiger",
-    checked: newAnimal.selectedOption === "Tiger",
+    name: "Tiger" // checked={newAnimal.selectedOption === "Tiger"}
+    ,
     onChange: handleAnimalChange
   }), "Tiger")), ifTiger ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "tigerType"
@@ -189,16 +199,18 @@ function Form() {
   })) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "radio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "radio",
+    type: "checkbox",
     value: "Snake",
-    checked: newAnimal.selectedOption === "Snake",
+    name: "Snake" // checked={newAnimal.selectedOption === "Snake"}
+    ,
     onChange: handleAnimalChange
   }), "Snake")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "radio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "radio",
+    type: "checkbox",
     value: "Donkey",
-    checked: newAnimal.selectedOption === "Donkey",
+    name: "Donkey" // checked={newAnimal.selectedOption === "Donkey"}
+    ,
     onChange: handleAnimalChange
   }), "Donkey"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     onClick: console.log(formData)

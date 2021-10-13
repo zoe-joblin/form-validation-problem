@@ -5,7 +5,7 @@ function Form () {
   const [newEmail, setNewEmail] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [newColour, setNewColour] = useState('')
-  const [newAnimal, setNewAnimal] = useState('')
+  const [newAnimals, setNewAnimals] = useState([])
   const [ifTiger, setIfTiger] = useState(false)
   const [tigerType, setTigerType] = useState('')
 
@@ -19,7 +19,7 @@ function Form () {
       email: newEmail,
       password: newPassword,
       colour: newColour,
-      animal: newAnimal,
+      animal: newAnimals,
       tigerType: tigerType
     })
   }
@@ -39,10 +39,11 @@ function Form () {
   const handleAnimalChange = (evt) => {
     if(evt.target.value == "Tiger") {
       setIfTiger(true)
+      setNewAnimals( [ ...newAnimals, evt.target.value ])
+      
     }
-    setNewAnimal({
-          selectedOption: evt.target.value
-        })
+    setNewAnimals( [ ...newAnimals, evt.target.value ])
+    console.log(evt.target.value)
   }
   const handleTigerType = (evt) => {
     console.log(evt.target.value)
@@ -72,15 +73,15 @@ return (
         }
         </select>
         </div>
-
         <div>
           <label htmlFor='animal'>Animal: </label>
           <div className="radio">
             <label>
               <input
-                type="radio"
+                type="checkbox"
                 value="Bear"
-                checked={newAnimal.selectedOption === "Bear"}
+                name="Bear"
+                // checked={newAnimal.selectedOption === "Bear"}
                 onChange={handleAnimalChange}
               />
               Bear
@@ -89,9 +90,10 @@ return (
           <div className="radio">
             <label>
               <input
-                type="radio"
+                type="checkbox"
                 value="Tiger"
-                checked={newAnimal.selectedOption === "Tiger"}
+                name="Tiger"
+                // checked={newAnimal.selectedOption === "Tiger"}
                 onChange={handleAnimalChange}
               />
               Tiger
@@ -106,9 +108,10 @@ return (
           <div className="radio">
             <label>
               <input
-                type="radio"
+                type="checkbox"
                 value="Snake"
-                checked={newAnimal.selectedOption === "Snake"}
+                name="Snake"
+                // checked={newAnimal.selectedOption === "Snake"}
                 onChange={handleAnimalChange}
               />
               Snake
@@ -117,9 +120,10 @@ return (
           <div className="radio">
             <label>
               <input
-                type="radio"
+                type="checkbox"
                 value="Donkey"
-                checked={newAnimal.selectedOption === "Donkey"}
+                name="Donkey"
+                // checked={newAnimal.selectedOption === "Donkey"}
                 onChange={handleAnimalChange}
               />
               Donkey
@@ -127,9 +131,6 @@ return (
           </div>
         </div>
        
-
-
-
 
         <button onClick={console.log(formData)}>Submit!</button>
       </form>
